@@ -1,4 +1,6 @@
 import pytest
+
+from .pages.basket_page import BasketPage
 from .data import LINKS
 
 from .pages.product_page import ProductPage
@@ -54,3 +56,13 @@ def test_can_go_to_login_link_form_product_page(browser):
     page = ProductPage(browser, link)
     page.go_to_site()
     page.go_to_login_page()
+
+
+def test_guest_can_see_product_in_basket_opened_from_product_page(browser):
+    link = 'http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/'
+    page = ProductPage(browser, link)
+    page.go_to_site()
+    page.go_to_basket()
+    basket_page = BasketPage(browser, browser.current_url)
+    basket_page.should_be_product_form_in_basket()
+    basket_page.should_be_basket_empty_message()
