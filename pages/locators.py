@@ -1,6 +1,20 @@
 from selenium.webdriver.common.by import By
 
 
+class BasePageLocators:
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    BASKET_LINK = (By.CSS_SELECTOR, '.basket-mini > span > a')
+    BASKET_LINK_INVALID = (By.CSS_SELECTOR, '.basket-mini_inc > span > a')
+
+
+class BasketPageLocators:
+    BASKET_EMPTY_MESSAGE = (By.CSS_SELECTOR, "#content_inner > p")
+    BASKET_EMPTY_MESSAGE_INVALID = (By.CSS_SELECTOR, "#content_inner_inc > p")
+    BASKET_PRODUCT_FORM = (By.CSS_SELECTOR, '#basket_formset')
+    BASKET_PRODUCT_FORM_INVALID = (By.CSS_SELECTOR, '#basket_formset_inc')
+
+
 class MainPageLocators:
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
 
