@@ -54,5 +54,9 @@ class BasePage:
             return False
         return True
 
+    def should_be_authorized_user(self):
+        assert self.is_present_element(BasePageLocators.ICON_USER), "User icon is not presented," \
+                                                                 " probably unauthorised user"
+
     def should_be_login_link(self):
         assert self.is_present_element(BasePageLocators.LOGIN_LINK), "Login link is not presented"

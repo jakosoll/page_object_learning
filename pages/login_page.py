@@ -4,6 +4,16 @@ from selenium.common.exceptions import NoSuchElementException
 
 
 class LoginPage(BasePage):
+    def register_new_user(self, email, password):
+        form_email = self.find_element(LoginPageLocators.REGISTRATION_FORM_EMAIL)
+        form_email.send_keys(email)
+        form_password_1 = self.find_element(LoginPageLocators.REGISTRATION_FORM_PASSWORD_1)
+        form_password_1.send_keys(password)
+        form_password_2 = self.find_element(LoginPageLocators.REGISTRATION_FORM_PASSWORD_2)
+        form_password_2.send_keys(password)
+        button = self.find_element(LoginPageLocators.REGISTRATION_FORM_BUTTON)
+        button.click()
+
     def should_be_login_page(self):
         self.should_be_login_url()
         self.should_be_login_form()
