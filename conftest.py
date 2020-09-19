@@ -2,7 +2,9 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
-from selenium.webdriver.support.ui import WebDriverWait
+"""
+Настроен на работу с Chrome и Firefox, так же в headless режиме, если нужно
+"""
 
 
 def pytest_addoption(parser):
@@ -43,8 +45,6 @@ def browser(request):
             print('\n Starting Firefox for test...')
     else:
         raise pytest.UsageError("--browser_name should be chrome or firefox")
-    # browser.wait = WebDriverWait(browser, 15)
-    # browser.implicitly_wait(15)
     yield browser
     print("\nQuit browser...")
     browser.quit()
